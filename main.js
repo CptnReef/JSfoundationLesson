@@ -29,6 +29,7 @@ for(var c=0; c<brickColumnCount; c++) {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -47,6 +48,13 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+
+function mouseMoveHandler(e) {
+  var relativeX = e.clientX - canvas.offsetLeft;
+  if(relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth/2;
+  }
+}
 function collisionDetection() {
   for(var c=0; c<brickColumnCount; c++) {
     for(var r=0; r<brickRowCount; r++) {
@@ -56,9 +64,6 @@ function collisionDetection() {
           dy = -dy;
           b.status = 0;
           score++;
-          if(score >= 1){
-              score *= 2;
-          }
           if(score == brickRowCount*brickColumnCount) {
             alert("YOU WIN, CONGRATS!");
             document.location.reload();
@@ -126,7 +131,7 @@ function draw() {
       dy = -dy;
     }
     else {
-      alert(`Total Score: ${score}!`);
+      alert("GAME OVER");
       document.location.reload();
       clearInterval(interval); // Needed for Chrome to end game
     }
