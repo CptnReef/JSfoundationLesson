@@ -1,0 +1,26 @@
+{
+  "name": "JSfoundationLesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CptnReef/JSfoundationLesson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CptnReef/JSfoundationLesson/issues"
+  },
+  "homepage": "https://github.com/CptnReef/JSfoundationLesson#readme",
+  "devDependencies": {
+    "webpack": "^5.39.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
